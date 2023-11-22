@@ -1,0 +1,26 @@
+[ENV]
+python -m venv env
+
+[ENV ACTIVATE]
+{WIN - CMD} - env\Scripts\activate.bat
+{WIN - PS} - env\Scripts\activate.ps1
+{*NIX} - source env/bin/activate
+
+[DEPENDENCY]
+pip install fastapi uvicorn
+
+[RUN]
+uvicorn books:app --host 127.0.0.1 --port 8090
+
+
+[SWAGGER]
+127.0.0.1:8000/docs
+
+[PAYLOAD - sample]
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "title": "Eric's FastAPI course",
+  "author": "Eric Roby",
+  "description": "The fastest way to learn FastAPI",
+  "rating": 100
+}
